@@ -142,7 +142,7 @@
         <div class="row no-gutters">
           {% for article in articles %}
             <div class="col-lg-4 col-sm-4">
-              <a class="portfolio-box" href="{{ url_for('static', filename='articles/' + article['filename']) }}">
+              <a class="portfolio-box" href="{{ url_for('articles', name=article['filename']) }}">
                 <img class="img-fluid" src="{{ url_for('static', filename='img/articles/' + article['imagefilename']) }}" alt="">
                 <div class="portfolio-box-caption">
                   <div class="portfolio-box-caption-content">

@@ -4,7 +4,7 @@
         {
             "categorie": "Clustering metrics",
             "name": "Gap Statistics",
-            "filename": "gap.html",
+            "filename": "gap",
             "imagefilename": "gap.png"
         }
     ]

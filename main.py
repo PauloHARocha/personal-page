@@ -21,5 +21,9 @@ def index():
                             articles=articles['articles'],
                             choosen_categorie=articles['categories'][0])
 
+@app.route('/articles/<name>')
+def articles(name):
+    return render_template(f'articles/{name}.html')
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
