@@ -1,0 +1,10 @@
+version: '3'
+services:
+  flask:
+    build: .
+    container_name: 'blog-flask'
+    ports:
+      - "8000:5000"
+    volumes:
+      - .:/code
+    restart: on-failure

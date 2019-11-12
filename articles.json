@@ -1,0 +1,11 @@
+{
+    "categories": ["Clustering metrics"],
+    "articles": [
+        {
+            "categorie": "Clustering metrics",
+            "name": "Gap Statistics",
+            "filename": "gap.html",
+            "imagefilename": "gap.png"
+        }
+    ]
+}
