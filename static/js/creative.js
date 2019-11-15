@@ -125,7 +125,7 @@
     document.getElementById('articles-set').appendChild(article_div)
 
     sr.reveal('.sr-img', {
-      delay: 100,
+      delay: 200,
       scale: 0
     });
   };
@@ -173,7 +173,8 @@
     return response.json()
   }
 
-  fetch('http://localhost:8000/init/articles')
+  // fetch('http://localhost:8000/init/articles')
+  fetch('http://paulorocha.herokuapp.com/init/articles')
     .then(status)
     .then(json)
     .then(function(data){

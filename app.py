@@ -1,5 +1,5 @@
 import os, json
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 from flask_jsglue import JSGlue
 
 
@@ -8,24 +8,17 @@ app.secret_key = 'super secret key'
 jsglue = JSGlue(app)
 
 
-
-#Updates needed so you can have an article menu of categories:
-#render the template just with the categories for the articles menu
-#create another route that returns a json with the articles given a categorie
-#create a script using fetch so you can get the articles when a categorie is clicked
-# initialize with the first categorie
 @app.route('/')
 def index():
-    # with open('articles.json') as json_file:
-    #     articles = json.load(json_file)
-    return render_template('index.html',)
-                            # categories=articles['categories'],
-                            # articles=articles['articles'],
-                            # choosen_categorie=articles['categories'][0])
+    return render_template('index.html')
 
 @app.route('/articles/<name>')
 def articles(name):
     return render_template(f'articles/{name}.html')
+
+@app.route('/cv')
+def send_cv():
+    return send_from_directory('static/img', 'PauloRochaCV.pdf')
 
 @app.route('/init/articles')
 def init():
