@@ -39,18 +39,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <!-- <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">About</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#services">Services</a>
-            </li> -->
+            </li>  -->
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#articles">Articles</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -66,11 +66,75 @@
             <!-- <hr> -->
           </div>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5 text-uppercase">Brazilian Software Engineer in Data Science</p>
+            <p class="text-faded mb-5 text-uppercase">Brazilian Computer Engineer for Data Science</p>
           </div>
         </div>
       </div>
     </header>
+
+
+    <section id="about" class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading">About</h2>
+            <hr class="my-4">
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <img class="img-fluid avatar col-lg-4 col-sm-4 col-4" src="{{ url_for('static', filename='img/avatar.png')}}" alt="avatar">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 col-12 mx-auto text-center">
+            <a href="https://www.github.com/pauloharocha" class="contact-icon">
+              <i class="fab fa-github fa-2x mx-3 sr-icon-1"></i>
+            </a>
+            
+            <a href="https://www.linkedin.com/in/rocha-paulo" class="contact-icon">
+              <i class="fab fa-linkedin fa-2x mx-3 sr-icon-2"></i>
+            </a>
+            
+            <a href="https://www.medium.com/@ph.alcantara.rocha" class="contact-icon">
+              <i class="fab fa-medium fa-2x mx-3 sr-icon-3"></i>
+            </a>
+            <a href="mailto:ph.alcantara.rocha@gmail.com" class="contact-icon">
+              <i class="fas fa-envelope fa-2x mx-3 sr-icon-4"></i>
+            </a>
+            <a href="{{url_for('static', filename='img/PauloRochaCV.pdf')}}" class="contact-icon">
+              <i class="fas fa-user-circle fa-2x mx-3 sr-icon-5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <p class="mb-4 text-muted sr-icon-5">
+                I am a Computer Engineer graduated from the University of <a href="http://www3.uea.edu.br">Amazonas</a> and currently studying for a Master in Systems
+                Engineering at the Universities of <a href="http://w2.portais.atrio.scire.net.br/upe-ppges/index.php/pt/avisos">Pernambuco</a> and 
+                <a href="https://www.ucdavis.edu">California</a>. Gained experience with Data Analysis and Machine Learning working as a
+                data scientist and researcher, and my current field of study is about unsupervised learning, especially in clustering
+                methodologies. Also a python enthusiast and a teacher in progress ...
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- <section class="bg-primary" id="about">
       <div class="container">
@@ -138,12 +202,47 @@
         </div>
       </div>
 
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <div class="service-box mt-5 mx-auto mb-2">
+              <p class="mb-0 text-muted font-weight-bold">
+                A series of jupyter notebooks containing examples of
+                Data Analysis and Machine Learning Techniques.
+              </p>
+              <i class="fab fa-python"></i>
+            </div>
+          </div>
+        </div> 
+      </div>
+
+      <div class="container">
+        <div class="row no-gutters text-center">
+          <div class="dropdown col-lg-3 mx-auto mt-3">
+            <button class="btn btn-light dropdown-toggle" 
+            type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Categories
+            </button>
+            <div class="dropdown-menu" id='categories-drop' aria-labelledby="dropdownMenuButton">
+  
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row no-gutters text-center">
+          <div class="col-lg-3 mx-auto mt-5 mb-2 sr-img">
+              <h3 id='categorie-state' class="font-weight-bold"></h3>     
+          </div>
+        </div>
+      </div>
       <div class="container-fluid p-0">
-        <div class="row no-gutters">
-          {% for article in articles %}
-            <div class="col-lg-4 col-sm-4">
+        <div class="row no-gutters" id='articles-set'>
+          <!-- {% for article in articles %}
+            <div class="col-lg-4 col-sm-4 sr-img">
               <a class="portfolio-box" href="{{ url_for('articles', name=article['filename']) }}">
-                <img class="img-fluid" src="{{ url_for('static', filename='img/articles/' + article['imagefilename']) }}" alt="">
+                <img class="img-fluid" src="{{ url_for('static', filename='img/articles/' + article['imagefilename']) }}" alt="{{article['name']}}">
                 <div class="portfolio-box-caption">
                   <div class="portfolio-box-caption-content">
                     <div class="project-category text-faded">
@@ -156,7 +255,7 @@
                 </div>
               </a>
             </div>
-          {% endfor %}
+          {% endfor %} -->
         </div>
       </div>
  
@@ -169,41 +268,64 @@
       </div>
     </section> -->
 
-    <section id="contact">
+    <!-- <section id="contact">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading">Contact</h2>
             <hr class="my-4">
-            <!-- <p class="mb-5">Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p> -->
+            <p class="mb-5">Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-3 col-sm-3 col-3 ml-auto text-center">
-            <a href="https://www.github.com/pauloharocha" class="contact-icon"> 
-              <i class="fab fa-github fa-3x mb-3 sr-contact-1"></i>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-3 col-3 mr-auto text-center">
-            <a href="https://www.linkedin.com/in/rocha-paulo" class="contact-icon">
-              <i class="fab fa-linkedin fa-3x mb-3 sr-contact-2"></i>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-3 col-3 mr-auto text-center">
-            <a href="https://www.medium.com/@ph.alcantara.rocha" class="contact-icon">
-              <i class="fab fa-medium fa-3x mb-3 sr-contact-2"></i>
-            </a>
-          </div>
-          <div class="col-lg-3 col-sm-3 col-3 mr-auto text-center">
-            <a href="mailto:ph.alcantara.rocha@gmail.com" class="contact-icon">
-              <i class="fas fa-envelope fa-3x mb-3 sr-contact-2"></i>
-            </a>
-          </div>
-          
         </div>
       </div>
-    </section>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 col-12 mx-auto text-center">
+            <a href="https://www.github.com/pauloharocha" class="contact-icon">
+              <i class="fab fa-github fa-3x mx-3 sr-icon-1"></i>
+            </a>
+       
+            <a href="https://www.linkedin.com/in/rocha-paulo" class="contact-icon">
+              <i class="fab fa-linkedin fa-3x mx-3 sr-icon-2"></i>
+            </a>
+      
+            <a href="https://www.medium.com/@ph.alcantara.rocha" class="contact-icon">
+              <i class="fab fa-medium fa-3x mx-3 sr-icon-3"></i>
+            </a>
+            <a href="mailto:ph.alcantara.rocha@gmail.com" class="contact-icon">
+              <i class="fas fa-envelope fa-3x mx-3 sr-icon-4"></i>
+            </a>
+          </div>
+        </div>  
+      </div>
+    </section> -->
 
+    <footer class="bg-light py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <a href="https://www.github.com/pauloharocha" class="contact-icon">
+              <i class="fab fa-github fa-2x mx-2"></i>
+            </a>
+            
+            <a href="https://www.linkedin.com/in/rocha-paulo" class="contact-icon">
+              <i class="fab fa-linkedin fa-2x mx-2"></i>
+            </a>
+            
+            <a href="https://www.medium.com/@ph.alcantara.rocha" class="contact-icon">
+              <i class="fab fa-medium fa-2x mx-2"></i>
+            </a>
+            <a href="mailto:ph.alcantara.rocha@gmail.com" class="contact-icon">
+              <i class="fas fa-envelope fa-2x mx-2"></i>
+            </a>
+            <div class="small text-center text-muted mt-2">Paulo Rocha</div>
+          </div>
+        </div>
+       
+      </div>
+    </footer>
+
+    {{ JSGlue.include() }}
     <!-- Bootstrap core JavaScript -->
     <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

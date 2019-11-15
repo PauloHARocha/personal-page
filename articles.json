@@ -1,11 +1,17 @@
 {
-    "categories": ["Clustering metrics"],
+    "categories": ["Clustering metrics", "Basic Pandas"],
     "articles": [
         {
             "categorie": "Clustering metrics",
             "name": "Gap Statistics",
             "filename": "gap",
             "imagefilename": "gap.png"
+        },
+        {
+            "categorie": "Basic Pandas",
+            "name": "DataFrame 1",
+            "filename": "dataframe1",
+            "imagefilename": "dataframe1.png"
         }
     ]
 }

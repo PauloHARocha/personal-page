@@ -1,9 +1,11 @@
 import os, json
 from flask import Flask, render_template
+from flask_jsglue import JSGlue
 
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
+jsglue = JSGlue(app)
 
 
 
@@ -14,16 +16,23 @@ app.secret_key = 'super secret key'
 # initialize with the first categorie
 @app.route('/')
 def index():
-    with open('articles.json') as json_file:
-        articles = json.load(json_file)
-    return render_template('index.html',
-                            categories=articles['categories'],
-                            articles=articles['articles'],
-                            choosen_categorie=articles['categories'][0])
+    # with open('articles.json') as json_file:
+    #     articles = json.load(json_file)
+    return render_template('index.html',)
+                            # categories=articles['categories'],
+                            # articles=articles['articles'],
+                            # choosen_categorie=articles['categories'][0])
 
 @app.route('/articles/<name>')
 def articles(name):
     return render_template(f'articles/{name}.html')
+
+@app.route('/init/articles')
+def init():
+    with open('articles.json') as json_file:
+        articles = json.load(json_file)
+    return articles
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
