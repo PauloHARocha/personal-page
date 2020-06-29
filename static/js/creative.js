@@ -93,7 +93,7 @@
     // let article_div_box_cat = document.createElement('div')
     let article_div_box_name = document.createElement('div')
 
-    article_div.className = 'col-lg-4 col-sm-6 sr-img'
+    article_div.className = 'col-lg-4 col-sm-6'
 
     article_a.className = 'portfolio-box'
     article_a.href = window.location.origin + "/articles/" + article['filename']
@@ -124,10 +124,10 @@
     
     document.getElementById('articles-set').appendChild(article_div)
 
-    sr.reveal('.sr-img', {
-      delay: 200,
-      scale: 0
-    });
+    // sr.reveal('.sr-img', {
+    //   delay: 200,
+    //   scale: 0
+    // });
   };
 
   function create_categorie(categorie) {
@@ -174,7 +174,7 @@
   }
 
   // fetch('http://localhost:8000/init/articles')
-  fetch('http://paulorocha.herokuapp.com/init/articles')
+  fetch('https://paulorocha.herokuapp.com/init/articles')
     .then(status)
     .then(json)
     .then(function(data){

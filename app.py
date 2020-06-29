@@ -1,12 +1,15 @@
 import os, json
 from flask import Flask, render_template, send_from_directory
 from flask_jsglue import JSGlue
+from flask_sslify import SSLify
 
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
 jsglue = JSGlue(app)
+sslify = SSLify(app)
 
+#add debounce to the dropdown categories
 
 @app.route('/')
 def index():
